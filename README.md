@@ -1,4 +1,9 @@
-# Enterprise RAG Platform
+# Nexus RAG
+
+[![GitHub](https://img.shields.io/badge/GitHub-nexus--rag-blue?logo=github)](https://github.com/prasnna-saravanan/nexus-rag)
+[![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python)](https://www.python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-green?logo=fastapi)](https://fastapi.tiangolo.com)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Production-grade RAG system for **supply chain operations** with advanced features:
 
