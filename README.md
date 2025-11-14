@@ -66,25 +66,25 @@ Visit http://localhost:8000/docs for interactive API documentation
 
 ## Features
 
-### ✅ Implemented
-- **5 Specialized Chunking Strategies**
-  - Email Thread-Aware (reply stripping, signature removal, context injection)
-  - Hierarchical (SOP header-based with parent context)
-  - Table-Aware (PDF table extraction to markdown)
-  - Recursive (general purpose)
-  - Fixed (benchmarking)
+### Features
+
+- **Multiple Chunking Strategies**
+  - Email thread-aware chunking
+  - Hierarchical for SOPs
+  - Table extraction for invoices/POs
+  - Recursive and fixed-size options
   
 - **Graph RAG**
   - Neo4j knowledge graph integration
   - Multi-hop relationship traversal
   - Supply chain risk analysis
   
-- **Hybrid Search + Reranking** (The "Kill Shot")
+- **Hybrid Search + Reranking**
   - BM25 (sparse) + Vector (dense) retrieval
   - Cross-encoder reranking for precision
   - Configurable weighting
   - Metadata filtering
-  - 95% accuracy for Master Data matching
+  - High accuracy for Master Data matching
   
 - **HyDE (Hypothetical Document Embeddings)**
   - Query-to-document gap bridging
@@ -158,7 +158,7 @@ curl -X POST "http://localhost:8000/api/index" \
   -d '{"document_id": "DOC_ID", "chunking_strategy": "hierarchical"}'
 ```
 
-### Hybrid Search + Reranking (The "Kill Shot")
+### Hybrid Search + Reranking
 ```bash
 # Full pipeline: BM25 + Vector + Cross-Encoder
 curl -X POST "http://localhost:8000/api/search/reranked" \

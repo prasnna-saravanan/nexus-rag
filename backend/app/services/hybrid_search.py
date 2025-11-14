@@ -1,7 +1,7 @@
 """
 Hybrid Search: Dense (Vector) + Sparse (BM25) Search.
 
-The "Senior" Pattern:
+Implementation:
 - Use BM25 for exact keyword matches (SKU: XJ-900)
 - Use Vector Search for semantic matches ("metal rods")
 - Combine scores with configurable weights
@@ -14,12 +14,8 @@ from app.services.embedding.base import EmbedderBase
 
 class HybridSearchService:
     """
-    Hybrid search combining dense and sparse retrieval.
-    
-    Use Cases:
-    - Master data search (exact SKU + semantic product description)
-    - Invoice search (exact invoice number + fuzzy vendor name)
-    - Email search (exact sender + semantic content)
+    Hybrid search combining BM25 (sparse) and vector (dense) retrieval.
+    Good for cases where you need both exact matches and semantic search.
     """
     
     def __init__(self, qdrant_client: QdrantClient):

@@ -17,10 +17,8 @@ from .base import ChunkerBase, Chunk
 
 class TableAwareChunker(ChunkerBase):
     """
-    Table-aware chunking for invoices, POs, and structured documents.
-    
-    Designed for supply chain transactional documents where
-    table structure is critical.
+    Table-aware chunking for invoices and POs.
+    Extracts tables from PDFs and preserves structure.
     """
     
     def __init__(self):

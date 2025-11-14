@@ -1,13 +1,7 @@
 """
-Graph RAG Service.
+Graph RAG Service for supply chain risk analysis.
 
-Combines graph traversal with vector retrieval for supply chain reasoning.
-
-Use Case: "How does the strike in Germany affect us?"
-1. Extract entities from query (Strike, Germany)
-2. Find paths in knowledge graph (Strike -> Logistics Provider -> Supplier -> PO)
-3. Retrieve vector context for each entity
-4. Generate answer with full context
+Combines graph traversal with vector retrieval.
 """
 from typing import List, Dict, Any, Optional
 import openai
@@ -16,11 +10,7 @@ from app.services.graph.neo4j_client import Neo4jClient
 
 
 class GraphRAGService:
-    """
-    Graph RAG service for multi-hop reasoning.
-    
-    The "Killer" Use Case: Supply Chain Risk Analysis.
-    """
+    """Graph RAG service for multi-hop reasoning in supply chain operations."""
     
     def __init__(self, settings: Settings, neo4j_client: Neo4jClient):
         """

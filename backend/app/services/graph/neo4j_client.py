@@ -13,12 +13,8 @@ from app.core.config import Settings
 
 class Neo4jClient:
     """
-    Neo4j client for Graph RAG operations.
-    
-    Use Cases:
-    - Supply chain risk analysis
-    - Relationship discovery
-    - Multi-hop reasoning
+    Neo4j client for graph operations.
+    Handles entity/relationship management and graph traversal.
     """
     
     def __init__(self, settings: Settings):

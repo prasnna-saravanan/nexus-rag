@@ -1,7 +1,7 @@
 """
 Reranking API Routes.
 
-The "Kill Shot" endpoint: Hybrid Search + Cross-Encoder Reranking.
+Hybrid Search with Cross-Encoder Reranking for high-precision retrieval.
 """
 
 from fastapi import APIRouter, Depends
@@ -28,22 +28,18 @@ async def reranked_search(
     qdrant: QdrantClient = Depends(get_qdrant_client),
 ):
     """
-    The "Kill Shot": Hybrid Search + Cross-Encoder Reranking.
+    Hybrid Search with Cross-Encoder Reranking.
 
     Pipeline:
-    1. Hybrid Search (BM25 + Vector) → Get top 30-50 candidates
-    2. Cross-Encoder Reranking → Score each (query, doc) pair precisely
-    3. Return top K with highest cross-encoder scores
+    1. Hybrid Search (BM25 + Vector) gets initial candidates
+    2. Cross-Encoder reranks them for better precision
+    3. Returns top K results
 
-    Use Case: Master Data (SKUs, Products, Vendors)
-    - BM25 catches exact SKU matches ("XJ-900")
-    - Vector catches semantic descriptions ("steel rod")
-    - Cross-encoder picks the best overall match
+    Good for: Master Data, Invoices, any case where you need high accuracy
 
     Parameters:
-    - candidates_multiplier: How many candidates to retrieve before reranking
-      (default 3x = if top_k=10, retrieve 30 candidates, then rerank to 10)
-    - use_reranker: Set to False to skip reranking (faster but less accurate)
+    - candidates_multiplier: retrieve this many times top_k before reranking
+    - use_reranker: enable/disable cross-encoder step
 
     Example:
     ```
@@ -127,12 +123,12 @@ async def reranker_info():
         "pipeline": {
             "step_1": "Hybrid Search (BM25 + Vector)",
             "step_2": "Cross-Encoder Reranking",
-            "step_3": "Return top K",
+            "step_3": "Return top K results",
         },
-        "why_it_works": {
+        "description": {
             "hybrid_search": "Combines exact keyword matches with semantic similarity",
-            "cross_encoder": "Scores (query, doc) pairs together for precise relevance",
-            "result": "High accuracy without sacrificing recall",
+            "cross_encoder": "Scores query-document pairs together for precise relevance",
+            "result": "Improved accuracy with high recall",
         },
         "use_cases": [
             "Master Data: Exact SKU + product description matching",

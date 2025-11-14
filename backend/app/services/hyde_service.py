@@ -1,11 +1,11 @@
 """
 HyDE (Hypothetical Document Embeddings) Service.
 
-The "Senior" Pattern:
+Implementation:
 1. User asks a question
-2. Generate a "fake ideal answer" using LLM
-3. Embed the fake answer
-4. Search with the fake answer embedding
+2. Generate a hypothetical answer using LLM
+3. Embed the hypothetical answer
+4. Search with the hypothetical answer embedding
 5. This bridges the gap between user questions and formal document text
 
 Use Case: SOPs - User asks "What do I do if supplier fails audit?"

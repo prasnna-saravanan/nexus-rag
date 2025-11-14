@@ -1,7 +1,7 @@
 """
 Email Thread-Aware Chunking Strategy.
 
-The "Senior" Pattern:
+Implementation:
 1. Reply Stripping: Remove quoted reply text
 2. Signature Removal: Strip email signatures
 3. Context Injection: Prepend Subject, Sender, Timestamp
@@ -17,10 +17,8 @@ from .base import ChunkerBase, Chunk
 
 class EmailThreadAwareChunker(ChunkerBase):
     """
-    Email-specific chunking strategy.
-    
-    Designed for supply chain email threads where context matters.
-    Each email in a thread becomes a separate chunk with full context.
+    Email-specific chunking for thread-aware processing.
+    Each email becomes a separate chunk with context preserved.
     """
     
     def __init__(self):

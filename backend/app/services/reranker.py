@@ -1,13 +1,13 @@
 """
 Cross-Encoder Reranker.
 
-The "Kill Shot" for high accuracy retrieval:
+High accuracy retrieval pipeline:
 1. Hybrid Search returns top 20-50 candidates
 2. Cross-Encoder scores each (query, document) pair
 3. Rerank by cross-encoder scores
 4. Return top K
 
-Why it works:
+How it works:
 - Bi-encoders (regular embeddings): Query and doc encoded separately
   → Fast but less accurate (can't see query-doc interactions)
 
@@ -48,16 +48,16 @@ class CrossEncoderReranker:
         self._lazy_load()
 
     def _lazy_load(self):
-        """Lazy load model (only when first used)."""
+        """Lazy load model when first used."""
         if self.model is None:
-            print(f"Loading cross-encoder model: {self.model_name}")
+            print(f"Loading model: {self.model_name}")
             self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
             self.model = AutoModelForSequenceClassification.from_pretrained(
                 self.model_name
             )
             self.model.to(self.device)
             self.model.eval()
-            print(f"✅ Model loaded on {self.device}")
+            print(f"Model loaded on {self.device}")
 
     def rerank(
         self,

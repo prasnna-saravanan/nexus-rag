@@ -17,13 +17,8 @@ from app.core.config import Settings
 
 class QdrantClient:
     """
-    Qdrant vector database client.
-    
-    Handles:
-    - Collection management
-    - Vector indexing
-    - Similarity search
-    - Metadata filtering
+    Qdrant client for vector operations.
+    Handles collections, indexing, and similarity search.
     """
     
     def __init__(self, settings: Settings):

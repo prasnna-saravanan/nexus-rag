@@ -13,12 +13,8 @@ from .base import ChunkerBase, Chunk
 
 class HierarchicalChunker(ChunkerBase):
     """
-    Hierarchical chunking for structured documents like SOPs.
-    
-    Key Features:
-    - Splits on markdown headers (# ## ###)
-    - Injects parent section context into child chunks
-    - Preserves document hierarchy in metadata
+    Hierarchical chunking for structured documents.
+    Splits on headers and preserves document hierarchy.
     """
     
     def __init__(self, max_chunk_size: int = 2000):
