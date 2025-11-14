@@ -178,15 +178,6 @@ curl -X POST "http://localhost:8000/api/search/hyde" \
   -d '{"query": "What to do if supplier fails audit?", "document_type": "sop"}'
 ```
 
-## Full Documentation
-
-See **[ENTERPRISE_GUIDE.md](ENTERPRISE_GUIDE.md)** for:
-- Complete API reference
-- Real-world examples
-- Architecture decisions
-- Production considerations
-- Strategy selection guide
-
 ## License
 
 MIT
