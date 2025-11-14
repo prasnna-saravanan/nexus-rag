@@ -66,8 +66,6 @@ Visit http://localhost:8000/docs for interactive API documentation
 
 ## Features
 
-### Features
-
 - **Multiple Chunking Strategies**
   - Email thread-aware chunking
   - Hierarchical for SOPs
